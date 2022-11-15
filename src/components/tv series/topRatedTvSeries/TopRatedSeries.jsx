@@ -1,14 +1,14 @@
 import React from 'react';
-import { useGetLatestMoviesQuery } from '../../../api/movieApi';
+import { useGetTopRatedTvSeriesQuery } from '../../../api/movieApi';
 import CircularProgress from '@mui/material/CircularProgress';
-import LatestMovieList from './LatestMovieList';
+import TopRatedSeriesList from './TopRatedSeriesList';
 
-const LatestMovies = () => {
-  const { data: movies, isLoading } = useGetLatestMoviesQuery();
+const TopRatedSeries = () => {
+  const { data: movies, isLoading } = useGetTopRatedTvSeriesQuery();
 
   return (
     <main>
-      <h4 className='text-2xl p-5 md:ml-5'>Latest</h4>
+      <h4 className='text-2xl p-5 md:ml-5'>Top Rated Tv Series</h4>
       {isLoading ? (
         <div style={{ marginLeft: '50%' }}>
           <CircularProgress color='success' />
@@ -18,7 +18,7 @@ const LatestMovies = () => {
           {movies?.results?.map((movie) => {
             return (
               <div key={movie.id}>
-                <LatestMovieList {...movie} />
+                <TopRatedSeriesList {...movie} />
               </div>
             );
           })}
@@ -28,4 +28,4 @@ const LatestMovies = () => {
   );
 };
 
-export default LatestMovies;
+export default TopRatedSeries;

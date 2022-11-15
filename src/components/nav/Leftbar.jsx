@@ -20,11 +20,11 @@ const Leftbar = () => {
           <SlideshowOutlinedIcon />
         </Tooltip>
       </Link>
-      <div className='flex gap-3 p-5 hover:bg-green-500 ... '>
+      <Link to='/Tv-Series' className='flex gap-3 p-5 hover:bg-green-500 ... '>
         <Tooltip title='TV SERIES' placement='right'>
           <LiveTvOutlinedIcon />
         </Tooltip>
-      </div>
+      </Link>
       <div className='flex gap-3 p-5 hover:bg-green-500 ... '>
         <Tooltip title='REMAINDER' placement='right'>
           <CalendarMonthOutlinedIcon />

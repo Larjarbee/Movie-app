@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { useGetMovieDetailQuery } from '../../api/movieApi';
+import { useGetTvSeriesDetailQuery } from '../../../api/movieApi';
 import { useParams } from 'react-router-dom';
 import { CircularProgress, Rating } from '@mui/material';
+import TvSeriesList from './TvSeriesList';
 
-const MovieDetail = () => {
+const TvSeriesDetails = () => {
   const [value, setValue] = useState(5);
   const { id } = useParams();
 
-  const { data: movies, isLoading } = useGetMovieDetailQuery(id);
+  const { data: movies, isLoading } = useGetTvSeriesDetailQuery(id);
   console.log(movies);
 
   const {
@@ -15,10 +16,13 @@ const MovieDetail = () => {
     title,
     backdrop_path,
     poster_path,
-    release_date,
+    first_air_date,
     genres,
     overview,
     vote_average,
+    seasons,
+    number_of_seasons,
+    number_of_episodes,
   } = {
     ...movies,
   };
@@ -56,7 +60,7 @@ const MovieDetail = () => {
               <div className=' my-5'>
                 {genres?.map((genre) => (
                   <span
-                    className=' p-1 px-2 ml-3 border-2 rounded-full border-sec text-white'
+                    className=' p-1 px-2 ml-3 text-sm border-2 rounded-full border-sec text-white'
                     key={genre.id}
                   >
                     {genre.name}
@@ -65,7 +69,7 @@ const MovieDetail = () => {
               </div>
               <div className='flex align-middle'>
                 <span className=' text-gray-400 text-xs mr-5'>
-                  {release_date}
+                  {first_air_date}
                 </span>
 
                 <span>
@@ -77,6 +81,7 @@ const MovieDetail = () => {
                     precision={0.5}
                     max={5}
                     size='small'
+                    readOnly
                   />
                 </span>
               </div>
@@ -84,12 +89,28 @@ const MovieDetail = () => {
                 <h1 className=' text-2xl '>Overview:</h1>
                 <h2 className='text-white text-justify'>{overview}</h2>
               </div>
+              <h1 className=' text-lg mt-5'>
+                No of seasons: <span>{number_of_seasons}</span>
+              </h1>
+              <h1 className=' text-lg mt-5'>
+                No of episodes: <span>{number_of_episodes}</span>
+              </h1>
             </div>
           </div>
         )}
+
+        <div className='grid grid-cols-3 gap-1 px-5 mt-10 md:grid-cols-6 md:px-10'>
+          {seasons?.map((movie) => {
+            return (
+              <div key={movie.id}>
+                <TvSeriesList {...movie} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );
 };
 
-export default MovieDetail;
+export default TvSeriesDetails;

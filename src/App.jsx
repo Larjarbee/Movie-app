@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/nav/Navbar';
 import Leftbar from './components/nav/Leftbar';
-import Home from './pages/Home';
-import MovieDetail from './pages/MovieDetail';
-import Movies from './pages/Movies';
+import { CircularProgress } from '@mui/material';
 
 function App() {
+  const Home = React.lazy(() => import('./pages/Home'));
+  const Movies = React.lazy(() => import('./pages/Movies'));
+  const MovieDetail = React.lazy(() => import('./pages/MovieDetail'));
+  const TvSeriess = React.lazy(() => import('./pages/TvSeriess'));
+  const TvSeriesDetail = React.lazy(() => import('./pages/TvSeriesDetail'));
   return (
     <>
       <BrowserRouter>
         <Navbar />
         <Leftbar />
-        <Routes>
-          <Route path='*' element={<Home />} />
-          <Route path='/' element={<Home />} />
-          <Route path='/Movies' element={<Movies />} />
-          <Route path='/Movie/:id' element={<MovieDetail />} />
-        </Routes>
+        <Suspense
+          fallback={
+            <div style={{ marginLeft: '50%' }}>
+              <CircularProgress color='success' />
+            </div>
+          }
+        >
+          <Routes>
+            <Route path='*' element={<Home />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/Movies' element={<Movies />} />
+            <Route path='/Movie/:id' element={<MovieDetail />} />
+            <Route path='/Tv-Series' element={<TvSeriess />} />
+            <Route path='/Tv-Series/:id' element={<TvSeriesDetail />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
   );

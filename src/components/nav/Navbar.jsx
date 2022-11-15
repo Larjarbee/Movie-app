@@ -13,14 +13,17 @@ const Navbar = () => {
 
   return (
     <nav className='fixed flex justify-between py-1 top-0 z-50 w-full bg-primary md:hidden'>
-      <div className=' ml-2'>
-        <IconButton
-          size='large'
-          edge='start'
-          onClick={() => setShowDrawer(true)}
-        >
-          <MenuIcon />
-        </IconButton>
+      <div>
+        <div className=' ml-2'>
+          <IconButton
+            size='large'
+            edge='start'
+            onClick={() => setShowDrawer(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+        </div>
+
         <Drawer
           anchor='left'
           open={showDrawer}
@@ -36,9 +39,12 @@ const Navbar = () => {
             >
               <SlideshowOutlinedIcon />
             </Link>
-            <div className='flex gap-3 p-5 hover:bg-green-500 ... '>
+            <Link
+              to='/Tv-Series'
+              className='flex gap-3 p-5 hover:bg-green-500 ... '
+            >
               <LiveTvOutlinedIcon />
-            </div>
+            </Link>
             <div className='flex gap-3 p-5 hover:bg-green-500 ... '>
               <CalendarMonthOutlinedIcon />
             </div>

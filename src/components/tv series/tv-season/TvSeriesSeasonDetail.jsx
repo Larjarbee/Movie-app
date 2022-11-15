@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useGetMovieDetailQuery } from '../../api/movieApi';
 import { useParams } from 'react-router-dom';
 import { CircularProgress, Rating } from '@mui/material';
+import { useGetTvSeriesSeasonDetailQuery } from '../../../api/movieApi';
 
-const MovieDetail = () => {
+const TvSeriesSeasonDetail = () => {
   const [value, setValue] = useState(5);
   const { id } = useParams();
 
-  const { data: movies, isLoading } = useGetMovieDetailQuery(id);
+  const { data: movies, isLoading } = useGetTvSeriesSeasonDetailQuery(id, num);
   console.log(movies);
 
   const {
@@ -92,4 +92,4 @@ const MovieDetail = () => {
   );
 };
 
-export default MovieDetail;
+export default TvSeriesSeasonDetail;

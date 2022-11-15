@@ -20,7 +20,7 @@ const Movies = () => {
 
   return (
     <div className='w-full mt-14 ml-0 md:ml-10 md:mt-0'>
-      <h4 className='ml-5 text-4xl p-5'>Movies</h4>
+      <h4 className=' text-4xl p-5 md:ml-5'>Movies</h4>
 
       {isLoading ? (
         <div style={{ marginLeft: '50%' }}>

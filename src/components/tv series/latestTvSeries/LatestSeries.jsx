@@ -1,15 +1,15 @@
 import React from 'react';
-import TrendingMovie from './TrendingMovieList';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useGetTrendingMoviesQuery } from '../../../api/movieApi';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import LatestSeriesList from './LatestSeriesList';
+import { useGetPopularTvSeriesQuery } from '../../../api/movieApi';
 
-const TrendinMovies = () => {
-  const { data: movies, isLoading } = useGetTrendingMoviesQuery();
+const LatestSeries = () => {
+  const { data: movies, isLoading } = useGetPopularTvSeriesQuery();
 
   return (
     <main>
@@ -21,7 +21,7 @@ const TrendinMovies = () => {
         />
       </form>
 
-      <h4 className='text-2xl p-5 md:ml-5'>Trending</h4>
+      <h4 className='text-2xl p-5 md:ml-5'>Latest Tv Series</h4>
       {isLoading ? (
         <div style={{ marginLeft: '50%' }}>
           <CircularProgress color='success' />
@@ -45,7 +45,7 @@ const TrendinMovies = () => {
             {movies?.results?.map((movie) => {
               return (
                 <SwiperSlide key={movie.id}>
-                  <TrendingMovie {...movie} />
+                  <LatestSeriesList {...movie} />
                 </SwiperSlide>
               );
             })}
@@ -56,4 +56,4 @@ const TrendinMovies = () => {
   );
 };
 
-export default TrendinMovies;
+export default LatestSeries;

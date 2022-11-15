@@ -12,7 +12,7 @@ const TopRatedMovies = () => {
 
   return (
     <main>
-      <h4 className='ml-5 text-2xl p-5'>Top Rated</h4>
+      <h4 className='text-2xl p-5 md:ml-5'>Top Rated</h4>
       {isLoading ? (
         <div style={{ marginLeft: '50%' }}>
           <CircularProgress color='success' />
