@@ -30,9 +30,12 @@ const Navbar = () => {
             <Link to='/' className='flex gap-3 p-5 hover:bg-green-500 ...'>
               <HomeOutlinedIcon />
             </Link>
-            <div className='flex gap-3 p-5 hover:bg-green-500 ... '>
+            <Link
+              to='/Movies'
+              className='flex gap-3 p-5 hover:bg-green-500 ... '
+            >
               <SlideshowOutlinedIcon />
-            </div>
+            </Link>
             <div className='flex gap-3 p-5 hover:bg-green-500 ... '>
               <LiveTvOutlinedIcon />
             </div>
