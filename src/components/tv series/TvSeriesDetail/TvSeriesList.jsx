@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const TvSeriesList = ({ poster_path, name, air_date, id, season_number }) => {
+const TvSeriesList = ({ poster_path, name, air_date }) => {
   const url = 'https://image.tmdb.org/t/p//w500/';
 
   return (
-    <div>
+    <>
       <div className=' rounded-lg hover:opacity-50 '>
         <div className='mb-10 rounded-lg '>
           <div className=' rounded-lg'>
@@ -23,7 +22,7 @@ const TvSeriesList = ({ poster_path, name, air_date, id, season_number }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -10,6 +10,7 @@ function App() {
   const MovieDetail = React.lazy(() => import('./pages/MovieDetail'));
   const TvSeriess = React.lazy(() => import('./pages/TvSeriess'));
   const TvSeriesDetail = React.lazy(() => import('./pages/TvSeriesDetail'));
+
   return (
     <>
       <BrowserRouter>

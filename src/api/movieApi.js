@@ -10,7 +10,7 @@ export const MovieApi = createApi({
     }),
     getMovieDetail: builder.query({
       query: (id) =>
-        `/movie/${id}?api_key=d2e2d8a66a2176492ffafd8be2ab424e&language=en-US&append_to_response`,
+        `/movie/${id}?api_key=d2e2d8a66a2176492ffafd8be2ab424e&language=en-US&append_to_response=videos`,
     }),
 
     getTopRatedMovies: builder.query({
@@ -34,12 +34,7 @@ export const MovieApi = createApi({
 
     getTvSeriesDetail: builder.query({
       query: (id) =>
-        `/tv/${id}?api_key=d2e2d8a66a2176492ffafd8be2ab424e&language=en-US`,
-    }),
-
-    getTvSeriesSeasonDetail: builder.query({
-      query: (id, num) =>
-        `/tv/${id}/season/${num}?api_key=d2e2d8a66a2176492ffafd8be2ab424e&language=en-US`,
+        `/tv/${id}?api_key=d2e2d8a66a2176492ffafd8be2ab424e&language=en-US&append_to_response=videos`,
     }),
   }),
 });
@@ -52,5 +47,4 @@ export const {
   useGetPopularTvSeriesQuery,
   useGetTopRatedTvSeriesQuery,
   useGetTvSeriesDetailQuery,
-  useGetTvSeriesSeasonDetailQuery,
 } = MovieApi;

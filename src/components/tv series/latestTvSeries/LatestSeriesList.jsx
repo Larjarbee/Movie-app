@@ -1,14 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LatestSeriesList = ({
-  poster_path,
-  backdrop_path,
-  title,
-  name,
-  release_date,
-  id,
-}) => {
+const LatestSeriesList = ({ poster_path, backdrop_path, title, name, id }) => {
   const url = 'https://image.tmdb.org/t/p//w500/';
 
   return (
