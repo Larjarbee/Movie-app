@@ -6,6 +6,7 @@ import { CircularProgress } from '@mui/material';
 
 function App() {
   const Home = React.lazy(() => import('./pages/Home'));
+  // const LoginPage = React.lazy(() => import('./pages/LoginPage'));
   const Movies = React.lazy(() => import('./pages/Movies'));
   const MovieDetail = React.lazy(() => import('./pages/MovieDetail'));
   const TvSeriess = React.lazy(() => import('./pages/TvSeriess'));
@@ -26,6 +27,7 @@ function App() {
           <Routes>
             <Route path='*' element={<Home />} />
             <Route path='/' element={<Home />} />
+            {/* <Route path='/Login' element={<LoginPage />} /> */}
             <Route path='/Movies' element={<Movies />} />
             <Route path='/Movie/:id' element={<MovieDetail />} />
             <Route path='/Tv-Series' element={<TvSeriess />} />

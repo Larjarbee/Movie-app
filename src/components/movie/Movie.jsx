@@ -20,6 +20,14 @@ const Movies = () => {
 
   return (
     <div className='w-full mt-14 ml-0 md:ml-10 md:mt-0'>
+      <form className='ml-10 pt-5 hidden md:block'>
+        <input
+          className=' py-2 px-5 rounded-full w-2/3 bg-primary md:w-1/4 '
+          type='search'
+          placeholder='Search for movies, TV shows...'
+        />
+      </form>
+
       <h4 className=' text-2xl p-5 md:ml-5'>Movies</h4>
 
       {isLoading ? (
