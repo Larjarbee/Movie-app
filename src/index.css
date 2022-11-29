@@ -14,3 +14,25 @@ body {
   color: #1E5128;
   font-weight: bold;
 }
+
+.effect:hover {
+  transform: scale(1.3);
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.trans {
+  animation: animate 0.5s ease-out forwards;
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

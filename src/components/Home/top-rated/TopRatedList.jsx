@@ -14,16 +14,18 @@ const TopRatedMovieList = ({
 
   return (
     <Link to={`${`/Movie/${id}`}`}>
-      <div className=' w-auto rounded-lg hover:opacity-50'>
+      <div className='w-auto rounded-lg hover:opacity-50'>
         <div className='rounded-lg '>
           <div className=' rounded-lg'>
-            <img
-              className='rounded-lg'
-              src={url + poster_path}
-              alt='img'
-              width={200}
-              loading='lazy'
-            />
+            <div className=' w-full overflow-hidden'>
+              <img
+                className='effect rounded-lg'
+                src={url + poster_path}
+                alt='img'
+                width={200}
+                loading='lazy'
+              />
+            </div>
             <div>
               <h1 className=' text-white text-sm'>{title || name}</h1>
               <div className='flex justify-between align-middle'>
